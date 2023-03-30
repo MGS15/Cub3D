@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 23:25:42 by sel-kham          #+#    #+#             */
-/*   Updated: 2021/12/10 03:02:14 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/03/30 04:06:24 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,14 @@ static char	*ft_check_next_line(char *leftover)
 
 static char	*ft_remove_last_line(char *leftover)
 {
-	int	start;
+	int		start;
+	char	*duped;
 
 	start = ft_strchr(leftover, '\n');
 	if (!leftover || start == -1 || ft_strlen(leftover) - start == 1)
 		return (free(leftover), NULL);
-	return (free(leftover), ft_strdup(leftover + start + 1));
+	duped = ft_strdup(leftover + start + 1);
+	return (free(leftover), duped);
 }
 
 char	*get_next_line(int fd)
