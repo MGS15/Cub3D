@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 23:25:42 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/03/30 04:06:24 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/03/31 05:28:09 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ static char	*ft_check_next_line(char *leftover)
 	if (!leftover)
 		return (NULL);
 	i = -1;
-	start = ft_strchr(leftover, '\n');
+	start = ft_strchr2(leftover, '\n');
 	if (start == -1)
-		return (ft_strdup(leftover));
+		return (ft_strdup2(leftover));
 	res = malloc((start + 2) * sizeof(char));
 	if (!res)
 		return (NULL);
@@ -39,10 +39,10 @@ static char	*ft_remove_last_line(char *leftover)
 	int		start;
 	char	*duped;
 
-	start = ft_strchr(leftover, '\n');
-	if (!leftover || start == -1 || ft_strlen(leftover) - start == 1)
+	start = ft_strchr2(leftover, '\n');
+	if (!leftover || start == -1 || ft_strlen2(leftover) - start == 1)
 		return (free(leftover), NULL);
-	duped = ft_strdup(leftover + start + 1);
+	duped = ft_strdup2(leftover + start + 1);
 	return (free(leftover), duped);
 }
 
@@ -59,13 +59,13 @@ char	*get_next_line(int fd)
 	s = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!s)
 		return (NULL);
-	while (ft_strchr(leftover, '\n') == -1)
+	while (ft_strchr2(leftover, '\n') == -1)
 	{
 		res_len = read(fd, s, BUFFER_SIZE);
 		if (res_len <= 0)
 			break ;
 		s[res_len] = 0;
-		leftover = ft_strjoin(leftover, s, res_len);
+		leftover = ft_strjoin2(leftover, s, res_len);
 	}
 	tmp_buff = ft_check_next_line(leftover);
 	leftover = ft_remove_last_line(leftover);
