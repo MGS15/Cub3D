@@ -6,7 +6,7 @@
 #    By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/30 01:10:39 by sel-kham          #+#    #+#              #
-#    Updated: 2023/03/31 01:22:58 by sel-kham         ###   ########.fr        #
+#    Updated: 2023/03/31 20:06:58 by sel-kham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ REMOVE	:= rm -rf
 _BONUS	:= _bonus
 
 # Flags
-CFLAGS		:= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS		:= -Wall -Wextra -Werror -g
 MATH_FLAGS	:= -lm
 MLX_EFLAGS	:= -lmlx -framework OpenGL -framework AppKit
 MLX_OFLAGS	:= -Imlx
@@ -53,9 +53,9 @@ HEADERS			:= Cub3D datatypes macros
 HEADERS			:= $(addprefix $(INC_DIR)/, $(addsuffix .h, $(HEADERS)))
 APP				:= 
 APP				:= $(addprefix $(APP_DIR)/, $(addsuffix .c, $(APP)))
-INI				:= constructors
+INI				:= constructors setters
 INI				:= $(addprefix $(INI_DIR)/, $(addsuffix .c, $(INI)))
-HELPERS			:= error_handler
+HELPERS			:= error_handler string_handler
 HELPERS			:= $(addprefix $(HELPERS_DIR)/, $(addsuffix .c, $(HELPERS)))
 PUBLIC			:= parsing texture_parser
 PUBLIC			:= $(addprefix $(PUBLIC_DIR)/, $(addsuffix .c, $(PUBLIC)))
