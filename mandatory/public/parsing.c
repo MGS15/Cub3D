@@ -6,22 +6,35 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 04:03:51 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/03/31 01:20:51 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/03/31 21:30:42 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3D.h"
 
-t_maze	*get_maze(char *file_dir)
+t_maze	*get_maze(int fd)
 {
 	t_maze	*maze;
-	int		fd;
+	char	*line;
+	int		results;
+	int		old_res;
 
-	fd = open(file_dir, O_RDONLY);
-	if (fd < 0)
-		return (print_error(MAP_FILE_ERROR), NULL);
+	results = 0;
 	maze = init_maze();
 	if (!maze)
 		return (print_error(MEMORY_ERROR), NULL);
-	
+	line = get_next_line(fd);
+	while (line && results < 6)
+	{
+		old_res = config_parser(&maze, line);
+		free(line);
+		if (old_res == -1)
+			return (print_error(MAP_PARSE_ERROR), free_maze(maze), NULL);
+		results += old_res;
+		line = get_next_line(fd);
+	}
+	free(line);
+	if (results != 6)
+		return (free_maze(maze), NULL);
+	return (maze);
 }
