@@ -1,21 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   datatypes.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 01:13:43 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/03/30 02:45:31 by sel-kham         ###   ########.fr       */
+/*   Created: 2023/03/30 02:08:41 by sel-kham          #+#    #+#             */
+/*   Updated: 2023/03/30 04:08:51 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/Cub3D.h"
+#ifndef DATATYPES_H
+# define DATATYPES_H
 
-int	main(int c, char **v)
+typedef struct coord_s
 {
-	if (c != 2)
-		fatal_error(ARGS_ERROR);
-	v = NULL;
-	return (EXIT_SUCCESS);
-}
+	int	x;
+	int	y;
+}	t_coords;
+
+typedef struct rgb_s
+{
+	short	r;
+	short	g;
+	short	b;
+}	t_rgb;
+
+typedef struct maze_s
+{
+	char	*north_side;
+	char	*west_side;
+	char	*east_side;
+	char	*south_side;
+	t_rgb	*floor;
+	t_rgb	*ceilling;
+	char	**map;
+}	t_maze;
+
+#endif
