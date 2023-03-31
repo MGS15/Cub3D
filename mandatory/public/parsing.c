@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 04:03:51 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/03/31 00:46:39 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/03/31 01:20:51 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ t_maze	*get_maze(char *file_dir)
 	maze = init_maze();
 	if (!maze)
 		return (print_error(MEMORY_ERROR), NULL);
+	
 }

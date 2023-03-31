@@ -6,7 +6,7 @@
 #    By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/30 01:10:39 by sel-kham          #+#    #+#              #
-#    Updated: 2023/03/30 05:09:26 by sel-kham         ###   ########.fr        #
+#    Updated: 2023/03/31 01:22:58 by sel-kham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ INI				:= constructors
 INI				:= $(addprefix $(INI_DIR)/, $(addsuffix .c, $(INI)))
 HELPERS			:= error_handler
 HELPERS			:= $(addprefix $(HELPERS_DIR)/, $(addsuffix .c, $(HELPERS)))
-PUBLIC			:= parsing
+PUBLIC			:= parsing texture_parser
 PUBLIC			:= $(addprefix $(PUBLIC_DIR)/, $(addsuffix .c, $(PUBLIC)))
 
 SRC				:= $(APP) $(INI) $(HELPERS) $(PUBLIC)
