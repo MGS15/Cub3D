@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 05:28:16 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/03/31 19:58:21 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/05 03:31:33 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,17 @@ bool	ft_isnumeric(const char *s)
 		if (!ft_isdigit(*s))
 			return (false);
 		s++;
+	}
+	return (true);
+}
+
+bool	ft_isblank(char *str)
+{
+	while (*str)
+	{
+		if (!ft_isspace(*str))
+			return (false);
+		str++;
 	}
 	return (true);
 }

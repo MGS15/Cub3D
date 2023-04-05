@@ -6,7 +6,7 @@
 #    By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/30 01:10:39 by sel-kham          #+#    #+#              #
-#    Updated: 2023/03/31 20:06:58 by sel-kham         ###   ########.fr        #
+#    Updated: 2023/04/05 03:11:16 by sel-kham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,9 +55,9 @@ APP				:=
 APP				:= $(addprefix $(APP_DIR)/, $(addsuffix .c, $(APP)))
 INI				:= constructors setters
 INI				:= $(addprefix $(INI_DIR)/, $(addsuffix .c, $(INI)))
-HELPERS			:= error_handler string_handler
+HELPERS			:= error_handler string_handler matrix_helpers
 HELPERS			:= $(addprefix $(HELPERS_DIR)/, $(addsuffix .c, $(HELPERS)))
-PUBLIC			:= parsing texture_parser
+PUBLIC			:= parsing texture_parser map_parser
 PUBLIC			:= $(addprefix $(PUBLIC_DIR)/, $(addsuffix .c, $(PUBLIC)))
 
 SRC				:= $(APP) $(INI) $(HELPERS) $(PUBLIC)

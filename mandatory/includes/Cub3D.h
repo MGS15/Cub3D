@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/03/31 21:35:02 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/05 03:24:22 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,13 @@ bool		extention_checker(char *dir, const char *ext);
  */
 size_t		double_pointer_len(void **pointer);
 /**
+ * @brief Check if a string contains only whitespace characters.
+ * @param str the string to check.
+ * @return true if the string contains only whitespace characters.
+ * @return false otherwise.
+ */
+bool		ft_isblank(char *str);
+/**
  * @brief Checks if a string passed as argument is numeric or not.
  * 
  * @param s the string to check
@@ -72,6 +79,12 @@ size_t		double_pointer_len(void **pointer);
  * @return false otherwise.
  */
 bool		ft_isnumeric(const char *s);
+/**
+ * @brief Returns the size of double pointer to charchars
+ * @param matrix double pointer to charchars
+ * @return size_t of the matrix
+ */
+size_t		martix_len(char **matrix);
 
 /* ______________________ INI FUNCTIONS ______________________ */
 /**
@@ -125,5 +138,22 @@ t_maze		*get_maze(int fd);
  * @return 0 Interger in case of parsing failure.
  */
 int			config_parser(t_maze **maze, char *line);
-
+/**
+ * @brief Get a double pointer to map read from the map file.
+ * 
+ * @param maze double pointer to t_maze structure.
+ * @param fd file descriptor of the map file.
+ * @return char** incase of success.
+ * @return NULL on failure.
+ */
+char		**get_map(int fd);
+/**
+ * @brief Allocates a new map based on the logest line.
+ * @param fd file descriptor of the map file.
+ * @return Double pointer to the new map.
+ * @return NULL on failure.
+ */
+char	**parse_map(int fd);
+//
+// void	print_maze(char **s);
 #endif

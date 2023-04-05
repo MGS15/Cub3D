@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 04:03:51 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/03/31 21:30:42 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/05 03:24:35 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ t_maze	*get_maze(int fd)
 	free(line);
 	if (results != 6)
 		return (free_maze(maze), NULL);
+	maze->map = parse_map(fd);
 	return (maze);
 }

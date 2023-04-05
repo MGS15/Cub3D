@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:09:00 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/03/31 21:01:55 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/01 02:41:56 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,17 @@
  */
 # define XPM_FILE ".xpm"
 # define BER_FILE ".ber"
+
+/*
+ * MAP ELEMENTS CONSTANTS
+ */
+# define AREA 48
+# define WALL 49
+# define SD_E 69
+# define SD_N 78
+# define SD_S 83
+# define SD_W 87
+# define EMPTY_SPACE 32
 
 /** 
  * ERRORS MESSAGES CONSTANTS
