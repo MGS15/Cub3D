@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:08:41 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/03/30 04:08:51 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/05 05:05:10 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct maze_s
 	t_rgb	*floor;
 	t_rgb	*ceilling;
 	char	**map;
+	size_t	map_width;
+	size_t	map_high;
 }	t_maze;
 
 #endif

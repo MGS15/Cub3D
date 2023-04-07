@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 22:33:06 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/05 03:38:26 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/06 23:41:56 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,8 @@ char	**get_map(int fd)
 	line = get_next_line(fd);
 	while (line)
 	{
-		if (!ft_isblank(line) || line[0])
+		if (!ft_isblank(line) || !line[0] || line[0] != NEWLINE)
 			break ;
-		printf("%s\n", line);
 		free(line);
 		line = get_next_line(fd);
 	}
@@ -60,6 +59,7 @@ char	**parse_map(int fd)
 {
 	char	**map;
 	char	**new_map;
+	size_t	matrix_height;
 	size_t	matrix_width;
 	int		i;
 
@@ -67,18 +67,18 @@ char	**parse_map(int fd)
 	if (!map)
 		return (NULL);
 	i = -1;
-	matrix_width = martix_len(map);
-	new_map = (char **) ft_calloc(sizeof(char *), matrix_width + 1);
+	matrix_height = martix_len(map);
+	matrix_width = get_lognest_line(map);
+	new_map = (char **) ft_calloc(sizeof(char *), matrix_height + 1);
 	if (!new_map)
 		return (free_double_pointer((void **) map), NULL);
 	while (map[++i])
 	{
-		new_map[i] = ft_strdup(map[i]);
+		new_map[i] = ft_calloc(sizeof(char), matrix_width + 1);
 		if (!new_map[i])
 			return (free_double_pointer((void **) map),
 				free_double_pointer((void **) map), NULL);
+		ft_memcpy(new_map[i], map[i], ft_strlen(map[i]));
 	}
-	// while (new_map[++t])
-	// 	printf("%s\n", new_map[t]);
 	return (free_double_pointer((void **) map), new_map);
 }

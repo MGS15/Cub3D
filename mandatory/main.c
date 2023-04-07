@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:13:43 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/05 03:41:03 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/06 23:43:02 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	main(int c, char **v)
 	maze = map_checker(fd);
 	if (!maze)
 		return (EXIT_FAILURE);
+	if (!is_valid_map(maze))
+		return (free_maze(maze), print_error(MAP_PARSE_ERROR), EXIT_FAILURE);
 	print_maze(maze);
 	return (EXIT_SUCCESS);
 }

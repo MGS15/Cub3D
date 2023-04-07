@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/05 03:24:22 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/05 22:25:42 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,19 @@ bool		ft_isnumeric(const char *s);
  * @return size_t of the matrix
  */
 size_t		martix_len(char **matrix);
+/**
+ * @brief Get the length of the longest line in the map
+ * @param map Double pointer to map.
+ * @return size_t representing the length of the longest line in the map.
+ */
+size_t		get_lognest_line(char **map);
+/**
+ * @brief Checks if a character is space.
+ * 
+ * @param c the character to check.
+ * @return 1 if the character is space, 0 otherwise.
+ */
+int			ft_isspace(int c);
 
 /* ______________________ INI FUNCTIONS ______________________ */
 /**
@@ -153,7 +166,14 @@ char		**get_map(int fd);
  * @return Double pointer to the new map.
  * @return NULL on failure.
  */
-char	**parse_map(int fd);
+char		**parse_map(int fd);
+/**
+ * @brief Checks if map contains all required elements and surounded by walls.
+ * @param maze Pointer to t_maze structure.
+ * @return true in case if valid map.
+ * @return false otherwise.
+ */
+bool		is_valid_map(t_maze *maze);
 //
 // void	print_maze(char **s);
 #endif
