@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 04:03:51 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/07 06:20:32 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/07 19:43:53 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ bool	is_valid_map(t_maze *maze)
 					if (is_spawning_position(maze->map[i][j]))
 						p++;
 				}
+				else if (!is_map_element(maze->map[i][j]) && maze->map[i][j] != ' ')
+                    return false;
 			}
 		}
 	}

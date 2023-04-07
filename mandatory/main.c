@@ -6,28 +6,28 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:13:43 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/07 03:21:00 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/07 20:33:36 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/Cub3D.h"
 
-static void	print_maze(t_maze *maze)
-{
-	int	i;
+// static void	print_maze(t_maze *maze)
+// {
+// 	int	i;
 
-	i = -1;
-	printf("NORTH SIDE: %s\n", maze->north_side);
-	printf("SOUTH SIDE: %s\n", maze->south_side);
-	printf("EAST SIDE: %s\n", maze->east_side);
-	printf("WEST SIDE: %s\n", maze->west_side);
-	printf("FLOOR: %d, %d, %d\n", maze->floor->r, maze->floor->g, \
-		maze->floor->b);
-	printf("CEILLING: %d, %d, %d\n", maze->floor->r, maze->floor->g, \
-		maze->floor->b);
-	while (maze->map[++i])
-		printf("%s\n", maze->map[i]);
-}
+// 	i = -1;
+// 	printf("NORTH SIDE: %s\n", maze->north_side);
+// 	printf("SOUTH SIDE: %s\n", maze->south_side);
+// 	printf("EAST SIDE: %s\n", maze->east_side);
+// 	printf("WEST SIDE: %s\n", maze->west_side);
+// 	printf("FLOOR: %d, %d, %d\n", maze->floor->r, maze->floor->g, \
+// 		maze->floor->b);
+// 	printf("CEILLING: %d, %d, %d\n", maze->floor->r, maze->floor->g, \
+// 		maze->floor->b);
+// 	while (maze->map[++i])
+// 		printf("%s\n", maze->map[i]);
+// }
 
 static t_maze	*map_checker(int fd)
 {
@@ -58,7 +58,6 @@ int	main(int c, char **v)
 	maze = map_checker(fd);
 	if (!maze)
 		return (EXIT_FAILURE);
-	print_maze(maze);
 	if (!is_valid_map(maze))
 		return (free_maze(maze), print_error(MAP_PARSE_ERROR), EXIT_FAILURE);
 	return (EXIT_SUCCESS);
