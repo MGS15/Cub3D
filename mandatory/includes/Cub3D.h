@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/07 06:17:36 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/07 21:53:44 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include<unistd.h>
 # include<fcntl.h>
 # include<stdbool.h>
+# include<math.h>
 # include "datatypes.h"
 # include "macros.h"
 # include "../../libs/libft/libft.h"
@@ -130,6 +131,13 @@ t_maze		*init_maze(void);
  * @return t_rgb value
  */
 t_rgb		set_rgb(int r, int g, int b);
+/**
+ * @brief Set the coords of an object.
+ * @param x coordinate
+ * @param y coordinate
+ * @return t_coords value;
+ */
+t_coords	set_coords(int x, int y);
 
 /* ______________________ INI FUNCTIONS ______________________ */
 /**

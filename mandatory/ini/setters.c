@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:50:03 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/03/31 19:51:15 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/07 21:53:03 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,13 @@ t_rgb	set_rgb(int r, int g, int b)
 	rgb.g = g;
 	rgb.b = b;
 	return (rgb);
+}
+
+t_coords	set_coords(int x, int y)
+{
+	t_coords	coords;
+
+	coords.x = x;
+	coords.y = y;
+	return (coords);
 }
