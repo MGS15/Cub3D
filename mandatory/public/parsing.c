@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 04:03:51 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/07 03:10:04 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/07 03:24:51 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ bool	is_valid_map(t_maze *maze)
 	p = 0;
 	maze->map_high = martix_len(maze->map);
 	maze->map_width = get_lognest_line(maze->map);
-	while (++i < (int) maze->map_width && maze->map[i])
+	while (maze->map[++i])
 	{
 		j = -1;
-		while (++j < (int) maze->map_width - 1)
+		while (maze->map[i][++j])
 		{
 			if (!j && maze->map[i][j] \
 				&& maze->map[i][j] != WALL && maze->map[i][j] != ' ')

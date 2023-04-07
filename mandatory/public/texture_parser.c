@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 01:22:47 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/05 21:51:20 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/07 03:45:33 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,18 @@ t_rgb	*rgb_parser(char *rgb)
 	t_rgb	*rgbp;
 	char	**rgb_array;
 	int		i;
+	int		comma;
 
+	i = -1;
+	comma = 0;
+	while (rgb[++i])
+		if (rgb[i] == ',')
+			comma++;
 	i = -1;
 	while (rgb[++i] && ft_isspace(rgb[i]))
 		;
+	if (!i || comma != 2)
+		return (NULL);
 	rgb_array = ft_split(rgb + i, ',');
 	if (!rgb_array)
 		return (print_error(MEMORY_ERROR), NULL);
@@ -33,7 +41,7 @@ t_rgb	*rgb_parser(char *rgb)
 		return (print_error(MEMORY_ERROR), NULL);
 	while (rgb_array[++i])
 		if (!ft_isnumeric(rgb_array[i]) \
-			|| ft_atoi(rgb_array[i]) < 0 || ft_atoi(rgb_array[i]) > 256)
+			|| ft_atoi(rgb_array[i]) < 0 || ft_atoi(rgb_array[i]) > 255)
 			return (free_double_pointer((void **) rgb_array), free(rgbp), \
 				print_error(MAP_PARSE_ERROR), NULL);
 	*rgbp = set_rgb(ft_atoi(rgb_array[0]), ft_atoi(rgb_array[1]), \
@@ -48,6 +56,8 @@ char	*texture_parser(char *texture)
 	i = -1;
 	while (texture[++i] && ft_isspace(texture[i]))
 		;
+	if (!i)
+		return (NULL);
 	if (!extention_checker(texture + i, ".xpm"))
 		return (NULL);
 	return (ft_strdup(texture + i));
