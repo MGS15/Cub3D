@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/05 22:25:42 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/07 06:17:36 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,14 +159,14 @@ int			config_parser(t_maze **maze, char *line);
  * @return char** incase of success.
  * @return NULL on failure.
  */
-char		**get_map(int fd);
+char		**get_map(int fd, char *line);
 /**
  * @brief Allocates a new map based on the logest line.
  * @param fd file descriptor of the map file.
  * @return Double pointer to the new map.
  * @return NULL on failure.
  */
-char		**parse_map(int fd);
+char		**parse_map(int fd, char *line);
 /**
  * @brief Checks if map contains all required elements and surounded by walls.
  * @param maze Pointer to t_maze structure.

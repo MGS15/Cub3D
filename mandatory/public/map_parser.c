@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 22:33:06 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/06 23:41:56 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/07 06:20:21 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,10 @@ static char	*map_handler(char *first_line, int fd)
 	return (free(first_line), new_line);
 }
 
-char	**get_map(int fd)
+char	**get_map(int fd, char *line)
 {
-	char	*line;
 	char	**map;
 
-	line = get_next_line(fd);
 	while (line)
 	{
 		if (!ft_isblank(line) || !line[0] || line[0] != NEWLINE)
@@ -55,7 +53,7 @@ char	**get_map(int fd)
 	return (free(line), map);
 }
 
-char	**parse_map(int fd)
+char	**parse_map(int fd, char *line)
 {
 	char	**map;
 	char	**new_map;
@@ -63,7 +61,7 @@ char	**parse_map(int fd)
 	size_t	matrix_width;
 	int		i;
 
-	map = get_map(fd);
+	map = get_map(fd, line);
 	if (!map)
 		return (NULL);
 	i = -1;
