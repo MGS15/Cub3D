@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:08:41 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/05 05:05:10 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/07 22:22:22 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,32 @@ typedef struct rgb_s
 
 typedef struct maze_s
 {
-	char	*north_side;
-	char	*west_side;
-	char	*east_side;
-	char	*south_side;
-	t_rgb	*floor;
-	t_rgb	*ceilling;
-	char	**map;
-	size_t	map_width;
-	size_t	map_high;
+	char		*north_side;
+	char		*west_side;
+	char		*east_side;
+	char		*south_side;
+	t_rgb		*floor;
+	t_rgb		*ceilling;
+	char		**map;
+	size_t		map_width;
+	size_t		map_high;
+	t_coords	player_position;
 }	t_maze;
+
+typedef struct img_s
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_img;
+
+typedef struct mlx_s
+{
+	void	*mlx_p;
+	void	*win_p;
+	t_img	img;
+}	t_mlx;
 
 #endif

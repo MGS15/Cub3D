@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/07 21:53:44 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/08 00:35:01 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include<fcntl.h>
 # include<stdbool.h>
 # include<math.h>
+# include "mlx.h"
 # include "datatypes.h"
 # include "macros.h"
 # include "../../libs/libft/libft.h"
@@ -51,6 +52,12 @@ void		free_double_pointer(void **pointer);
  * @return void
  */
 void		free_maze(t_maze *maze);
+/**
+ * @brief Frees all the elements of t_mlx struct
+ * @param mlx Pointer to t_mlx to be freed
+ * @return void
+ */
+void		free_mlx(t_mlx *mlx);
 /**
  * @brief Checks if the file provided has the specified file extension.
  * @param dir Absolute/Relative path to the file to be checked.
@@ -99,6 +106,13 @@ size_t		get_lognest_line(char **map);
  * @return 1 if the character is space, 0 otherwise.
  */
 int			ft_isspace(int c);
+/**
+ * @brief Puts a pixle with a color in specified coordinates.
+ * @param img pointer the mlx image.
+ * @param coord Coordinates of the pixel to be colored.
+ * @param color integer representation of the color.
+ */
+void		my_mlx_pixle_put(t_img *img, t_coords coord, int color);
 
 /* ______________________ INI FUNCTIONS ______________________ */
 /**
@@ -138,8 +152,15 @@ t_rgb		set_rgb(int r, int g, int b);
  * @return t_coords value;
  */
 t_coords	set_coords(int x, int y);
+/**
+ * @brief initializes the mlx_t structure.
+ * @param mlx pointer to mlx_t structure
+ * @return 1 in case of success.
+ * @return 0 of memory allocation failure.
+ */
+int			graphic_ini(t_mlx *mlx);
 
-/* ______________________ INI FUNCTIONS ______________________ */
+/* ______________________ PUB FUNCTIONS ______________________ */
 /**
  * @brief Parses the specified map file fills the t_maze structure
  * * with required information.
@@ -182,6 +203,12 @@ char		**parse_map(int fd, char *line);
  * @return false otherwise.
  */
 bool		is_valid_map(t_maze *maze);
+/* ______________________ APP FUNCTIONS ______________________ */
+/**
+ * @brief Entry point for the program.
+ * @param maze pointer to t_maze structure tha contains the map.
+ */
+void		entry_point(t_maze *maze);
 //
 // void	print_maze(char **s);
 #endif

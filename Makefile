@@ -6,7 +6,7 @@
 #    By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/30 01:10:39 by sel-kham          #+#    #+#              #
-#    Updated: 2023/04/05 03:11:16 by sel-kham         ###   ########.fr        #
+#    Updated: 2023/04/08 01:38:58 by sel-kham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,11 +51,11 @@ GNL_BUILD 		:= $(addprefix $(BUILD_DIR)/, $(notdir $(GNL:.c=.o)))
 # Mandatory files
 HEADERS			:= Cub3D datatypes macros
 HEADERS			:= $(addprefix $(INC_DIR)/, $(addsuffix .h, $(HEADERS)))
-APP				:= 
+APP				:= entry_point
 APP				:= $(addprefix $(APP_DIR)/, $(addsuffix .c, $(APP)))
-INI				:= constructors setters
+INI				:= constructors setters init_graphics
 INI				:= $(addprefix $(INI_DIR)/, $(addsuffix .c, $(INI)))
-HELPERS			:= error_handler string_handler matrix_helpers
+HELPERS			:= error_handler string_handler matrix_helpers mlx_helpers
 HELPERS			:= $(addprefix $(HELPERS_DIR)/, $(addsuffix .c, $(HELPERS)))
 PUBLIC			:= parsing texture_parser map_parser
 PUBLIC			:= $(addprefix $(PUBLIC_DIR)/, $(addsuffix .c, $(PUBLIC)))

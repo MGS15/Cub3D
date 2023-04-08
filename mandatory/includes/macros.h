@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:09:00 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/01 02:41:56 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/07 22:02:43 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,12 @@ it's permissions!"
 in format `*.cub` is required!"
 # define RESOLUTION_ERROR	"Invalid resolution! Choose\
 a different resolution (1007 x 641 recommended)."
+
+/*
+ * RAYCASTING
+ */
+# define WINDOW_WIDTH 800
+# define WINDOW_HEIGHT 500
+# define BLOCK_UNIT 32
 
 #endif
