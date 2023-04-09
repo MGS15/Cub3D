@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:08:41 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/07 22:22:22 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/09 01:47:32 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,16 @@ typedef struct mlx_s
 	void	*win_p;
 	t_img	img;
 }	t_mlx;
+
+typedef struct player_s
+{
+	t_coords	position;
+	int			radius;
+	short		turn_direction;
+	short		walk_direction;
+	double		rotation_angle;
+	double		move_speed;
+	double		rotation_speed;
+}	t_player;
 
 #endif

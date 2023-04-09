@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:09:00 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/07 22:02:43 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/08 03:42:39 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ a different resolution (1007 x 641 recommended)."
  */
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 500
-# define BLOCK_UNIT 32
+# define BLOCK_UNIT 16
 
 #endif
