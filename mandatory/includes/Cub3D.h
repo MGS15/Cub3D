@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/08 00:35:01 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/08 21:41:50 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,12 @@ int			ft_isspace(int c);
  * @param color integer representation of the color.
  */
 void		my_mlx_pixle_put(t_img *img, t_coords coord, int color);
+/**
+ * @brief Claculate the square of an integer.
+ * @param num the number to be squared
+ * @return long the value of the square.
+ */
+long		square_of_number(int num);
 
 /* ______________________ INI FUNCTIONS ______________________ */
 /**
@@ -203,12 +209,26 @@ char		**parse_map(int fd, char *line);
  * @return false otherwise.
  */
 bool		is_valid_map(t_maze *maze);
+/**
+ * @brief Checks if a character in the map represents a spawning direction.
+ * 
+ * @param c Charchter of the map.
+ * @return true if the character represents a spawn direction.
+ * @return false otherwise.
+ */
+bool		is_spawning_position(char c);
 /* ______________________ APP FUNCTIONS ______________________ */
 /**
  * @brief Entry point for the program.
  * @param maze pointer to t_maze structure tha contains the map.
  */
 void		entry_point(t_maze *maze);
+/**
+ * @brief Draws minimap
+ * @param maze pointer to t_maze structure.
+ * @param mlx pointer to t_mlx structure.
+ */
+void		minimap_draw(t_maze *maze, t_mlx *mlx);
 //
 // void	print_maze(char **s);
 #endif
