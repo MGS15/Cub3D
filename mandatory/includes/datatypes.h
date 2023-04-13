@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:08:41 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/09 01:47:32 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/13 01:45:11 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,12 @@ typedef struct player_s
 	double		move_speed;
 	double		rotation_speed;
 }	t_player;
+
+typedef struct data_s
+{
+	t_player	*player;
+	t_mlx		*mlx;
+	t_maze		*maze;
+}	t_data;
 
 #endif

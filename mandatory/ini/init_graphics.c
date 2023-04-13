@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 20:54:31 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/08 00:31:46 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/09 03:02:57 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,22 @@ int	graphic_ini(t_mlx *mlx)
 	mlx->img.addr = mlx_get_data_addr(mlx->img.img, &mlx->img.bpp, \
 		 &mlx->img.line_len, &mlx->img.endian);
 	return (1);
+}
+
+t_player	*init_player(void)
+{
+	t_player	*player;
+	
+	player = ft_calloc(1, sizeof(t_player));
+	if (!player)
+		return (NULL);
+	player->position.x = -1;
+	player->position.y = -1;
+	player->radius = -1;
+	player->turn_direction = 0;
+	player->walk_direction = 0;
+	player->rotation_angle = 0.0;
+	player->move_speed = 0.0;
+	player->rotation_speed = 0.0;
+	return (player);
 }

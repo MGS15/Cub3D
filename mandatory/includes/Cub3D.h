@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/08 21:41:50 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/13 02:03:58 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,17 @@ t_coords	*init_coords(void);
  */
 t_maze		*init_maze(void);
 /**
+ * @brief Allocates a pointer to t_player type object and initialize its elements to NULL.
+ * @return t_player* pointer to the t_player type object.
+ */
+t_player	*init_player(void);
+/**
+ * @brief Set the player object elements.
+ * @param maze a pointer to the t_maze object.
+ * @return t_player
+ */
+t_player	set_player(t_maze *maze);
+/**
  * @brief Set the rgb object values
  * 
  * @param r red value
@@ -228,7 +239,27 @@ void		entry_point(t_maze *maze);
  * @param maze pointer to t_maze structure.
  * @param mlx pointer to t_mlx structure.
  */
-void		minimap_draw(t_maze *maze, t_mlx *mlx);
+void		minimap_draw(t_maze *maze, t_mlx *mlx, t_coords player);
+/**
+ * @brief Draws player as a disc.
+ * @param p 
+ * @param mlx 
+ */
+void		print_player(t_player p, t_mlx *mlx);
+/**
+ * @brief Routes the eventes to the proper handler.
+ * @param e event code
+ * @param data pointer to t_data structure.
+ */
+int			destroy_game(void *data);
+/**
+ * @brief 
+ * 
+ * @param e 
+ * @param data 
+ * @return int 
+ */
+int			events_router(int e, void *data);
 //
 // void	print_maze(char **s);
 #endif
