@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 02:33:12 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/12 05:00:42 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/13 23:06:00 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,10 @@ void	minimap_draw(t_maze *maze, t_mlx *mlx, t_coords p)
 			if (maze->map[i][j] == WALL)
 				print_block(&mlx->img, set_coords(j, i), 0xFF00FF);
 			else if (maze->map[i][j] == AREA)
-				print_block(&mlx->img, set_coords(j, i), 0xCFCFCF);
+				print_block(&mlx->img, set_coords(j, i), 0xCFCFCF00);
 			else if (is_spawning_position(maze->map[i][j]))
 				draw_circle(PLAYER_RADIUS, p, mlx);
 		}
 	}
+	mlx_put_image_to_window(mlx->mlx_p, mlx->win_p, mlx->img.img, 0, 0);
 }

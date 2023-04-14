@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/13 02:03:58 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/14 06:25:42 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,36 +230,10 @@ bool		is_valid_map(t_maze *maze);
 bool		is_spawning_position(char c);
 /* ______________________ APP FUNCTIONS ______________________ */
 /**
- * @brief Entry point for the program.
- * @param maze pointer to t_maze structure tha contains the map.
- */
-void		entry_point(t_maze *maze);
-/**
  * @brief Draws minimap
  * @param maze pointer to t_maze structure.
  * @param mlx pointer to t_mlx structure.
  */
 void		minimap_draw(t_maze *maze, t_mlx *mlx, t_coords player);
-/**
- * @brief Draws player as a disc.
- * @param p 
- * @param mlx 
- */
-void		print_player(t_player p, t_mlx *mlx);
-/**
- * @brief Routes the eventes to the proper handler.
- * @param e event code
- * @param data pointer to t_data structure.
- */
-int			destroy_game(void *data);
-/**
- * @brief 
- * 
- * @param e 
- * @param data 
- * @return int 
- */
-int			events_router(int e, void *data);
-//
-// void	print_maze(char **s);
+
 #endif
