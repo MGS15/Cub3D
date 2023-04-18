@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/18 20:14:38 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/18 23:32:16 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -283,5 +283,26 @@ int		entry_point(t_maze *maze);
  * @param data 
  */
 void	draw_map(t_data *data);
-
+/**
+ * @brief 
+ * 
+ * @param data 
+ */
+void	draw_player(t_data *data);
+/**
+ * @brief 
+ * 
+ * @param data 
+ * @return int 
+ */
+int		events_router(int keycode, t_data *data);
+/**
+ * @brief 
+ * 
+ * @param data 
+ * @return int 
+ */
+int		default_handler(t_data *data);
+void	init_img(t_data *data);
+int		destroy_event(t_data *data);
 #endif

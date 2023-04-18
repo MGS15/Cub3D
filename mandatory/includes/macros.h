@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:09:00 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/18 02:01:40 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/18 22:09:22 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define SD_S 83
 # define SD_W 87
 # define EMPTY_SPACE 32
-# define PLAYER_RADIUS 5
+# define PLAYER_RADIUS 2
 
 /** 
  * ERRORS MESSAGES CONSTANTS

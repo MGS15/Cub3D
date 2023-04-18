@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 20:54:31 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/18 21:07:29 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/18 23:31:29 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,6 @@ t_mlx	*graphic_ini(void)
 	mlx->win_p = mlx_new_window(mlx->mlx_p, WINDOW_WIDTH, WINDOW_HEIGHT, "Cub3D");
 	if (!mlx->win_p)
 		return (0);
-	mlx->img.img = mlx_new_image(mlx->mlx_p, WINDOW_WIDTH, WINDOW_HEIGHT);
-	if (!mlx->img.img)
-		return (0);
-	mlx->img.addr = mlx_get_data_addr(mlx->img.img, &mlx->img.bpp, \
-		 &mlx->img.line_len, &mlx->img.endian);
 	return (mlx);
 }
 
@@ -40,7 +35,8 @@ t_player	*init_player(t_maze *maze)
 	player = ft_calloc(1, sizeof(t_player));
 	if (!player)
 		return (NULL);
-	player->position = maze->player_position;
+	player->position.x = maze->player_position.x * BLOCK_UNIT + BLOCK_UNIT / 2;
+	player->position.y = maze->player_position.y * BLOCK_UNIT + BLOCK_UNIT / 2;
 	player->radius = PLAYER_RADIUS;
 	player->turn_direction = 0;
 	player->walk_direction = 0;

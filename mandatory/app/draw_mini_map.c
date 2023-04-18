@@ -6,27 +6,40 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 02:33:12 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/17 22:44:28 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/18 21:29:30 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3D.h"
 
-void	draw_circle(t_data *data, int center_x, int center_y, int radius, int color)
+void	draw_player(t_data *data)
 {
-	int			i;
-	int			j;
-	int			res;
+	int	x;
+	int	y;
 
-	i = center_y - radius - 1;
-	while (++i < WINDOW_HEIGHT && i < center_y + radius)
+	x = data->player->position.x * BLOCK_UNIT + BLOCK_UNIT / 2;
+	y = data->player->position.y * BLOCK_UNIT + BLOCK_UNIT / 2;
+	draw_circle(data, x, y, PLAYER_RADIUS, 0xFF00FF);
+}
+
+void	draw_map(t_data *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < WINDOW_HEIGHT && data->maze->map[i / BLOCK_UNIT])
 	{
-		j = center_x - radius - 1;
-		while (++j < WINDOW_WIDTH && j < center_x + radius)
+		j = 0;
+		while (j < WINDOW_WIDTH && data->maze->map[i / BLOCK_UNIT][j / BLOCK_UNIT])
 		{
-			res = pow(j - center_x, 2) + pow(i - center_y, 2);
-			if (res <= pow(radius, 2))
-				my_mlx_pixle_put(&data->mlx->img, set_coords(j, i), color);
+			if (data->maze->map[i / BLOCK_UNIT][j / BLOCK_UNIT] == WALL)
+				draw_block(data, j, i, BLOCK_UNIT - 1, 0x00FFFF);
+			else if (data->maze->map[i / BLOCK_UNIT][j / BLOCK_UNIT] == AREA \
+				|| is_spawning_position(data->maze->map[i / BLOCK_UNIT][j / BLOCK_UNIT]))
+				draw_block(data, j, i, BLOCK_UNIT - 1, 0xF1F1F1);
+			j += BLOCK_UNIT;
 		}
+		i += BLOCK_UNIT;
 	}
 }
