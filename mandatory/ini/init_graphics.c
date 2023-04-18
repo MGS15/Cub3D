@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 20:54:31 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/17 22:14:30 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/18 21:07:29 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,26 @@ t_mlx	*graphic_ini(void)
 	return (mlx);
 }
 
-t_player	*init_player(void)
+t_player	*init_player(t_maze *maze)
 {
 	t_player	*player;
 	
 	player = ft_calloc(1, sizeof(t_player));
 	if (!player)
 		return (NULL);
-	player->position.x = -1;
-	player->position.y = -1;
-	player->radius = -1;
+	player->position = maze->player_position;
+	player->radius = PLAYER_RADIUS;
 	player->turn_direction = 0;
 	player->walk_direction = 0;
-	player->rotation_angle = 0.0;
-	player->move_speed = 0.0;
-	player->rotation_speed = 0.0;
+	if (maze->map[maze->player_position.y][maze->player_position.x] == SD_N)
+		player->rotation_angle = deg_to_rad(90.0);
+	else if (maze->map[player->position.x][player->position.y] == SD_W)
+		player->rotation_angle = deg_to_rad(180.0);
+	else if (maze->map[player->position.x][player->position.y] == SD_E)
+		player->rotation_angle = deg_to_rad(0.0);
+	else if (maze->map[player->position.x][player->position.y] == SD_S)
+		player->rotation_angle = deg_to_rad(270.0);
+	player->move_speed = 2.0;
+	player->rotation_speed = 2 * (M_PI / 180);
 	return (player);
 }
