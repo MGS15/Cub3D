@@ -6,7 +6,7 @@
 #    By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/30 01:10:39 by sel-kham          #+#    #+#              #
-#    Updated: 2023/04/14 06:24:16 by sel-kham         ###   ########.fr        #
+#    Updated: 2023/04/17 21:51:22 by sel-kham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ GNL_BUILD 		:= $(addprefix $(BUILD_DIR)/, $(notdir $(GNL:.c=.o)))
 # Mandatory files
 HEADERS			:= Cub3D datatypes macros
 HEADERS			:= $(addprefix $(INC_DIR)/, $(addsuffix .h, $(HEADERS)))
-APP				:= draw_mini_map
+APP				:= draw_mini_map entry_point
 APP				:= $(addprefix $(APP_DIR)/, $(addsuffix .c, $(APP)))
 INI				:= constructors setters init_graphics
 INI				:= $(addprefix $(INI_DIR)/, $(addsuffix .c, $(INI)))

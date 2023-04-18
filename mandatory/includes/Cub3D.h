@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/14 06:25:42 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/17 22:14:49 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,7 @@ t_coords	set_coords(int x, int y);
  * @return 1 in case of success.
  * @return 0 of memory allocation failure.
  */
-int			graphic_ini(t_mlx *mlx);
+t_mlx		*graphic_ini(void);
 
 /* ______________________ PUB FUNCTIONS ______________________ */
 /**
@@ -234,6 +234,13 @@ bool		is_spawning_position(char c);
  * @param maze pointer to t_maze structure.
  * @param mlx pointer to t_mlx structure.
  */
-void		minimap_draw(t_maze *maze, t_mlx *mlx, t_coords player);
+void	draw_circle(t_data *data, int center_x, int center_y, int radius, int color);
+/**
+ * @brief 
+ * 
+ * @param maze 
+ * @return int 
+ */
+int		entry_point(t_maze *maze);
 
 #endif

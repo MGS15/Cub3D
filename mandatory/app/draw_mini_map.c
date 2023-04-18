@@ -6,72 +6,27 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 02:33:12 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/13 23:06:00 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/17 22:44:28 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3D.h"
 
-void	draw_circle(int radius, t_coords c, t_mlx *mlx)
+void	draw_circle(t_data *data, int center_x, int center_y, int radius, int color)
 {
-	int	i;
-	int	j;
-	int	init_x;
-	int	init_y;
-	int	eq;
+	int			i;
+	int			j;
+	int			res;
 
-	init_x = c.x * BLOCK_UNIT;
-	init_y = (c.y * BLOCK_UNIT) - 1;
-	c.x = (c.x * BLOCK_UNIT) + BLOCK_UNIT / 2;
-	c.y = (c.y * BLOCK_UNIT) + BLOCK_UNIT / 2;
-	i = init_y;
-	while (++i <= BLOCK_UNIT + init_y)
+	i = center_y - radius - 1;
+	while (++i < WINDOW_HEIGHT && i < center_y + radius)
 	{
-		j = init_x - 1;
-		while (++j <= init_x + BLOCK_UNIT)
+		j = center_x - radius - 1;
+		while (++j < WINDOW_WIDTH && j < center_x + radius)
 		{
-			eq = pow(j - c.x , 2) + pow(i - c.y,  2);
-			if (eq <= pow(radius, 2))
-				my_mlx_pixle_put(&mlx->img, set_coords(j, i), 0x00FFFF);
-			else
-				my_mlx_pixle_put(&mlx->img, set_coords(j, i), 0xCFCFCF);
-		}
-		
-	}
-}
-
-void	print_block(t_img *img, t_coords coord, int color)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (++i < BLOCK_UNIT)
-	{
-		j = -1;
-		while (++j < BLOCK_UNIT)
-			my_mlx_pixle_put(img, set_coords(j + coord.x * BLOCK_UNIT, i + coord.y * BLOCK_UNIT), color);
-	}
-}
-
-void	minimap_draw(t_maze *maze, t_mlx *mlx, t_coords p)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (maze->map[++i] && i < WINDOW_HEIGHT)
-	{
-		j = -1;
-		while (maze->map[i][++j] && j < WINDOW_WIDTH)
-		{
-			if (maze->map[i][j] == WALL)
-				print_block(&mlx->img, set_coords(j, i), 0xFF00FF);
-			else if (maze->map[i][j] == AREA)
-				print_block(&mlx->img, set_coords(j, i), 0xCFCFCF00);
-			else if (is_spawning_position(maze->map[i][j]))
-				draw_circle(PLAYER_RADIUS, p, mlx);
+			res = pow(j - center_x, 2) + pow(i - center_y, 2);
+			if (res <= pow(radius, 2))
+				my_mlx_pixle_put(&data->mlx->img, set_coords(j, i), color);
 		}
 	}
-	mlx_put_image_to_window(mlx->mlx_p, mlx->win_p, mlx->img.img, 0, 0);
 }
