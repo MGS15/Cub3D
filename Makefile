@@ -6,7 +6,7 @@
 #    By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/30 01:10:39 by sel-kham          #+#    #+#              #
-#    Updated: 2023/04/17 21:51:22 by sel-kham         ###   ########.fr        #
+#    Updated: 2023/04/18 20:11:02 by sel-kham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ APP				:= draw_mini_map entry_point
 APP				:= $(addprefix $(APP_DIR)/, $(addsuffix .c, $(APP)))
 INI				:= constructors setters init_graphics
 INI				:= $(addprefix $(INI_DIR)/, $(addsuffix .c, $(INI)))
-HELPERS			:= error_handler string_handler matrix_helpers mlx_helpers
+HELPERS			:= error_handler string_handler matrix_helpers mlx_helpers calculations_helper
 HELPERS			:= $(addprefix $(HELPERS_DIR)/, $(addsuffix .c, $(HELPERS)))
 PUBLIC			:= parsing texture_parser map_parser
 PUBLIC			:= $(addprefix $(PUBLIC_DIR)/, $(addsuffix .c, $(PUBLIC)))

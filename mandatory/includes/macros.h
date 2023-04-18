@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:09:00 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/13 02:54:16 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/18 02:01:40 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define SD_S 83
 # define SD_W 87
 # define EMPTY_SPACE 32
-# define PLAYER_RADIUS 2
+# define PLAYER_RADIUS 5
 
 /** 
  * ERRORS MESSAGES CONSTANTS
@@ -63,7 +63,7 @@ a different resolution (1007 x 641 recommended)."
  */
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 500
-# define BLOCK_UNIT 16
+# define BLOCK_UNIT 24
 
 /*
  * EVENTS

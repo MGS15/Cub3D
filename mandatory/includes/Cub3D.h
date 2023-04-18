@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/17 22:14:49 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/18 20:14:38 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,47 @@ void		my_mlx_pixle_put(t_img *img, t_coords coord, int color);
  * @return long the value of the square.
  */
 long		square_of_number(int num);
-
+/**
+ * @brief 
+ * 
+ * @param rad 
+ * @return double 
+ */
+double		deg_to_rad(double rad);
+/**
+ * @brief 
+ * @param deg 
+ * @return double 
+ */
+double		rad_to_deg(double deg);
+/**
+ * @brief 
+ * 
+ * @param data 
+ * @param center_x 
+ * @param center_y 
+ * @param radius 
+ * @param color 
+ */
+void		draw_circle(t_data *data, int center_x, int center_y, int radius, int color);
+/**
+ * @brief 
+ * 
+ * @param data 
+ * @param start_x 
+ * @param start_y 
+ * @param side_len 
+ * @param color 
+ */
+void		draw_block(t_data *data, int start_x, int start_y, int side_len, int color);
+/**
+ * @brief 
+ * 
+ * @param data 
+ * @param end_p1 
+ * @param end_p2 
+ */
+void		draw_line(t_data *data, t_coords end_p1, t_coords end_p2);
 /* ______________________ INI FUNCTIONS ______________________ */
 /**
  * @brief Allocates a pointer to t_rgb type object and initialize its elements
@@ -143,16 +183,11 @@ t_coords	*init_coords(void);
  */
 t_maze		*init_maze(void);
 /**
- * @brief Allocates a pointer to t_player type object and initialize its elements to NULL.
- * @return t_player* pointer to the t_player type object.
- */
-t_player	*init_player(void);
-/**
  * @brief Set the player object elements.
  * @param maze a pointer to the t_maze object.
  * @return t_player
  */
-t_player	set_player(t_maze *maze);
+t_player	*init_player(t_maze *maze);
 /**
  * @brief Set the rgb object values
  * 
@@ -242,5 +277,11 @@ void	draw_circle(t_data *data, int center_x, int center_y, int radius, int color
  * @return int 
  */
 int		entry_point(t_maze *maze);
+/**
+ * @brief 
+ * 
+ * @param data 
+ */
+void	draw_map(t_data *data);
 
 #endif
