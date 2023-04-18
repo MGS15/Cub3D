@@ -6,14 +6,19 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 20:54:31 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/09 03:02:57 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/17 22:14:30 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3D.h"
 
-int	graphic_ini(t_mlx *mlx)
+t_mlx	*graphic_ini(void)
 {
+	t_mlx	*mlx;
+
+	mlx = (t_mlx *) ft_calloc(1, sizeof(t_mlx));
+	if (!mlx)
+		return (NULL);
 	mlx->mlx_p = mlx_init();
 	if (!mlx->mlx_p)
 		return (0);
@@ -25,7 +30,7 @@ int	graphic_ini(t_mlx *mlx)
 		return (0);
 	mlx->img.addr = mlx_get_data_addr(mlx->img.img, &mlx->img.bpp, \
 		 &mlx->img.line_len, &mlx->img.endian);
-	return (1);
+	return (mlx);
 }
 
 t_player	*init_player(void)
