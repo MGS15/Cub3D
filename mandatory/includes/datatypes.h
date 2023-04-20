@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   datatypes.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:08:41 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/13 01:45:11 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/20 05:50:01 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 typedef struct coord_s
 {
-	int	x;
-	int	y;
+	double	x;
+	double	y;
 }	t_coords;
 
 typedef struct rgb_s
@@ -25,6 +25,20 @@ typedef struct rgb_s
 	short	g;
 	short	b;
 }	t_rgb;
+
+typedef struct vector_s
+{
+	double	x;
+	double	y;
+}	t_vector;
+
+typedef struct event_s
+{
+	int	vertical_movement;
+	int	horizontal_movement;
+	int	rotation;
+	int keycode;
+}	t_event;
 
 typedef struct maze_s
 {
@@ -56,15 +70,30 @@ typedef struct mlx_s
 	t_img	img;
 }	t_mlx;
 
+typedef struct ray_s
+{
+	t_vector ray_v;
+	t_vector change;
+	t_vector	change_in_sqr;
+	int	map_x;
+	int	map_y;
+	int			inc_x;
+	int			inc_y;
+	char	interction;
+	int	wall_height;
+	int draw_start;
+	int draw_end;
+	double	intersection_x;
+}	t_ray;
+
 typedef struct player_s
 {
 	t_coords	position;
 	int			radius;
-	short		turn_direction;
-	short		walk_direction;
-	double		rotation_angle;
-	double		move_speed;
 	double		rotation_speed;
+	double		walk_speed;
+	t_vector	direction;
+	t_vector	plane;
 }	t_player;
 
 typedef struct data_s
@@ -72,6 +101,7 @@ typedef struct data_s
 	t_player	*player;
 	t_mlx		*mlx;
 	t_maze		*maze;
+	t_event		event;
 }	t_data;
 
 #endif

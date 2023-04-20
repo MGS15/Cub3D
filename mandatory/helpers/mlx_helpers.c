@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_helpers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 00:05:03 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/18 20:14:53 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/20 02:58:17 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	my_mlx_pixle_put(t_img *img, t_coords coord, int color)
 {
 	char	*dst;
 
-	dst = img->addr + (coord.y * img->line_len + coord.x * (img->bpp / 8));
+	dst = img->addr + ((int) coord.y * img->line_len + (int) coord.x * (img->bpp / 8));
 	*(unsigned int *) dst = color;
 }
 
@@ -53,12 +53,19 @@ void	draw_block(t_data *data, int start_x, int start_y, int side_len, int color)
 	}
 }
 
-// void	draw_line(t_data *data, t_coords end_p1, t_coords end_p2)
-// {
-// 	int			i;
-// 	int			j;
-// 	t_coords	delta;
+void	draw_line(t_data *data, double len, t_vector vec, int color)
+{
+	double	x;
+	double	y;
 
-// 	delta.x = end_p2.x - end_p1.x;
-// 	delta.y = end_p2.y - end_p1.y;
-// }
+	x = data->player->position.x * BLOCK_UNIT + BLOCK_UNIT / 2;
+	y = data->player->position.y * BLOCK_UNIT + BLOCK_UNIT / 2;
+	while (--len >= 0)
+	{
+	// printf("len: %f\n", len);
+	// color = 0;
+		my_mlx_pixle_put(&data->mlx->img, set_coords(round(x), round(y)), color);
+		x += vec.x;
+		y += vec.y;
+	}
+}

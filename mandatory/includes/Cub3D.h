@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/18 23:32:16 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/20 05:54:06 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,7 @@ void		draw_block(t_data *data, int start_x, int start_y, int side_len, int color
  * @param end_p1 
  * @param end_p2 
  */
-void		draw_line(t_data *data, t_coords end_p1, t_coords end_p2);
+void		draw_line(t_data *data, double len, t_vector vec, int color);
 /* ______________________ INI FUNCTIONS ______________________ */
 /**
  * @brief Allocates a pointer to t_rgb type object and initialize its elements
@@ -211,6 +211,14 @@ t_coords	set_coords(int x, int y);
  * @return 0 of memory allocation failure.
  */
 t_mlx		*graphic_ini(void);
+/**
+ * @brief Set the vector object
+ * 
+ * @param x 
+ * @param y 
+ * @return t_vector 
+ */
+t_vector	set_vector(double x, double y);
 
 /* ______________________ PUB FUNCTIONS ______________________ */
 /**
@@ -295,7 +303,7 @@ void	draw_player(t_data *data);
  * @param data 
  * @return int 
  */
-int		events_router(int keycode, t_data *data);
+int		events_router(t_data *data);
 /**
  * @brief 
  * 
@@ -305,4 +313,6 @@ int		events_router(int keycode, t_data *data);
 int		default_handler(t_data *data);
 void	init_img(t_data *data);
 int		destroy_event(t_data *data);
+int	keydown_handler(int keycode, t_data *data);
+int	keyup_handler(int keycode, t_data *data);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:11:32 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/18 23:35:12 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/20 06:18:52 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,97 @@
 int	default_handler(t_data *data)
 {
 	init_img(data);
-	draw_map(data);
-	draw_circle(data, data->player->position.x, data->player->position.y, PLAYER_RADIUS, 0xFF00FF);
+	events_router(data);
+	draw_player(data);
 	mlx_put_image_to_window(data->mlx->mlx_p, data->mlx->win_p, data->mlx->img.img,0, 0);
 	mlx_destroy_image(data->mlx->mlx_p, data->mlx->img.img);
 	return (0);
 }
 
-int	events_router(int keycode, t_data *data)
+int	keydown_handler(int keycode, t_data *data)
 {
 	if (keycode == A_KEY)
-		data->player->position.x -= 3;
-	else if (keycode == S_KEY)
-		data->player->position.y += 3;
+		data->event.horizontal_movement = -1;
 	else if (keycode == D_KEY)
-		data->player->position.x += 3;
+		data->event.horizontal_movement = 1;
 	else if (keycode == W_KEY)
-		data->player->position.y -= 3;
+		data->event.vertical_movement = -1;
+	else if (keycode == S_KEY)
+		data->event.vertical_movement = 1;
+	else if (keycode == LA_KEY)
+		data->event.rotation = -1;
+	else if (keycode == RA_KEY)
+		data->event.rotation = 1;
+	data->event.keycode = keycode;
+	return (EXIT_SUCCESS);
+}
+
+int	keyup_handler(int keycode, t_data *data)
+{
+	if (keycode == A_KEY)
+		data->event.horizontal_movement = 0;
+	else if (keycode == D_KEY)
+		data->event.horizontal_movement = 0;
+	else if (keycode == W_KEY)
+		data->event.vertical_movement = 0;
+	else if (keycode == S_KEY)
+		data->event.vertical_movement = 0;
+	else if (keycode == LA_KEY)
+		data->event.rotation = 0;
+	else if (keycode == RA_KEY)
+		data->event.rotation = 0;
+	data->event.keycode = keycode;
+	return (EXIT_SUCCESS);
+}
+
+int	events_router(t_data *data)
+{
+	double	x;
+	double	y;
+
+	x = 0;
+	y = 0;
+	if (data->event.keycode == A_KEY && data->event.horizontal_movement)
+	{
+		x = data->player->position.x - (data->player->plane.x * data->player->walk_speed);
+		y = data->player->position.y - (data->player->plane.y * data->player->walk_speed);
+	}
+	else if (data->event.keycode == S_KEY && data->event.vertical_movement)
+	{
+		x = data->player->position.x -(data->player->direction.x * data->player->walk_speed);
+		y = data->player->position.y -(data->player->direction.y * data->player->walk_speed);
+	}
+	else if (data->event.keycode == D_KEY && data->event.horizontal_movement)
+	{
+		x = data->player->position.x + (data->player->plane.x * data->player->walk_speed);
+		y = data->player->position.y + (data->player->plane.y * data->player->walk_speed);
+	}
+	else if (data->event.keycode == W_KEY && data->event.vertical_movement)
+	{
+		x = data->player->position.x + data->player->direction.x * data->player->walk_speed;
+		y = data->player->position.y + data->player->direction.y * data->player->walk_speed;
+	}
+	else if (data->event.keycode == RA_KEY && data->event.rotation)
+	{
+		data->player->direction = set_vector(data->player->direction.x * cos(ROT_L) - data->player->direction.y * sin(ROT_L), \
+			data->player->direction.x * sin(ROT_L) + cos(ROT_L) * data->player->direction.y);
+		data->player->plane = set_vector(data->player->plane.x * cos(ROT_L) - data->player->plane.y * sin(ROT_L), \
+			data->player->plane.x * sin(ROT_L) + cos(ROT_L) * data->player->plane.y);
+	}
+	else if (data->event.keycode == LA_KEY && data->event.rotation)
+	{
+		data->player->direction = set_vector(data->player->direction.x * cos(ROT_R) - data->player->direction.y * sin(ROT_R), \
+			data->player->direction.x * sin(ROT_R) + cos(ROT_R) * data->player->direction.y);
+		data->player->plane = set_vector(data->player->plane.x * cos(ROT_R) - data->player->plane.y * sin(ROT_R), \
+			data->player->plane.x * sin(ROT_R) + cos(ROT_R) * data->player->plane.y);
+	}
+	else if (data->event.keycode == ESC_KEY)
+		destroy_event(data);
+	if (data->maze->map[(int) y][(int) x] == AREA)
+	{
+		data->player->position.x = x;
+		data->player->position.y = y;
+	}
 	return (0);
 }
 

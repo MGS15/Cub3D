@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entry_point.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 02:57:35 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/18 23:32:55 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/20 05:40:47 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int	entry_point(t_maze *maze)
 	data->maze = maze;
 	data->mlx = graphic_ini();
 	data->player = init_player(data->maze);
-	mlx_hook(data->mlx->win_p, ON_KEYDOWN, 0, events_router, (void *) data);
+	ft_bzero(&data->event, sizeof(t_event));
+	maze->map[(int) maze->player_position.y][(int) maze->player_position.x] = '0';
+	mlx_hook(data->mlx->win_p, ON_KEYDOWN, 0, keydown_handler, (void *) data);
+	mlx_hook(data->mlx->win_p, ON_KEYUP, 0, keyup_handler, (void *) data);
 	mlx_hook(data->mlx->win_p, ON_DESTROY, 0, destroy_event, (void *) data);
 	mlx_loop_hook(data->mlx->mlx_p, default_handler, (void *) data);
 	mlx_loop(data->mlx->mlx_p);

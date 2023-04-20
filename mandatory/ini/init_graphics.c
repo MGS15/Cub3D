@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_graphics.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 20:54:31 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/18 23:31:29 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/20 06:20:28 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,30 @@ t_player	*init_player(t_maze *maze)
 	player = ft_calloc(1, sizeof(t_player));
 	if (!player)
 		return (NULL);
-	player->position.x = maze->player_position.x * BLOCK_UNIT + BLOCK_UNIT / 2;
-	player->position.y = maze->player_position.y * BLOCK_UNIT + BLOCK_UNIT / 2;
+	player->position.x = maze->player_position.x;
+	player->position.y = maze->player_position.y;
 	player->radius = PLAYER_RADIUS;
-	player->turn_direction = 0;
-	player->walk_direction = 0;
-	if (maze->map[maze->player_position.y][maze->player_position.x] == SD_N)
-		player->rotation_angle = deg_to_rad(90.0);
-	else if (maze->map[player->position.x][player->position.y] == SD_W)
-		player->rotation_angle = deg_to_rad(180.0);
-	else if (maze->map[player->position.x][player->position.y] == SD_E)
-		player->rotation_angle = deg_to_rad(0.0);
-	else if (maze->map[player->position.x][player->position.y] == SD_S)
-		player->rotation_angle = deg_to_rad(270.0);
-	player->move_speed = 2.0;
+	if (maze->map[(int) maze->player_position.y][(int) maze->player_position.x] == SD_N)
+	{
+		player->direction = set_vector(0, -1);
+		player->plane = set_vector(-.66, 0);
+	}
+	else if (maze->map[(int) maze->player_position.y][(int) maze->player_position.x] == SD_W)
+	{
+		player->direction = set_vector(-1, 0);
+		player->plane = set_vector(0, .66);
+	}
+	else if (maze->map[(int) maze->player_position.y][(int) maze->player_position.x] == SD_E)
+	{
+		player->direction = set_vector(1, 0);
+		player->plane = set_vector(0, -.66);
+	}
+	else if (maze->map[(int) maze->player_position.y][(int) maze->player_position.x] == SD_S)
+	{
+		player->direction = set_vector(0, 1);
+		player->plane = set_vector(.66, 0);
+	}
 	player->rotation_speed = 2 * (M_PI / 180);
+	player->walk_speed = .15;
 	return (player);
 }

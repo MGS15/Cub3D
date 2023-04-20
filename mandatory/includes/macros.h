@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:09:00 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/18 22:09:22 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/20 05:00:27 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,22 @@ a different resolution (1007 x 641 recommended)."
 /*
  * RAYCASTING
  */
-# define WINDOW_WIDTH 800
-# define WINDOW_HEIGHT 500
+# define WINDOW_WIDTH 1200
+# define WINDOW_HEIGHT 900
 # define BLOCK_UNIT 24
+# define ROT_L -0.0872665
+# define ROT_R 0.0872665
+# define SIN_ROT_L 0.0871557427
+# define COS_ROT_L 0.9961946981
+# define SIN_ROT_R -0.0871557427
+# define COS_ROT_R 0.9961946981
+
 
 /*
  * EVENTS
  */
 # define ON_KEYDOWN 2
+# define ON_KEYUP 3
 # define ON_DESTROY 17
 /*
  * KEYS 

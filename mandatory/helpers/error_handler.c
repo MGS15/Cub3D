@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:25:16 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/18 23:43:33 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/18 23:45:19 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ void	free_mlx(t_mlx *mlx)
 	{
 		if (mlx->win_p)
 			mlx_destroy_window(mlx->mlx_p, mlx->win_p);
-		// if (mlx->img.img)
-		// 	mlx_destroy_image(mlx->mlx_p, mlx->img.img);
 		if (mlx->mlx_p)
 			free(mlx->mlx_p);
 		free(mlx);
