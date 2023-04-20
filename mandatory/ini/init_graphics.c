@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 20:54:31 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/20 06:20:28 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:28:19 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ t_player	*init_player(t_maze *maze)
 		player->plane = set_vector(.66, 0);
 	}
 	player->rotation_speed = 2 * (M_PI / 180);
-	player->walk_speed = .15;
+	player->walk_speed = .1;
 	return (player);
 }

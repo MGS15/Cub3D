@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 02:57:35 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/20 05:40:47 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:27:41 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ int	entry_point(t_maze *maze)
 	data->player = init_player(data->maze);
 	ft_bzero(&data->event, sizeof(t_event));
 	maze->map[(int) maze->player_position.y][(int) maze->player_position.x] = '0';
+	init_img(data);
+	events_router(data);
+	draw_player(data);
+	mlx_put_image_to_window(data->mlx->mlx_p, data->mlx->win_p, data->mlx->img.img,0, 0);
+	mlx_destroy_image(data->mlx->mlx_p, data->mlx->img.img);
 	mlx_hook(data->mlx->win_p, ON_KEYDOWN, 0, keydown_handler, (void *) data);
 	mlx_hook(data->mlx->win_p, ON_KEYUP, 0, keyup_handler, (void *) data);
 	mlx_hook(data->mlx->win_p, ON_DESTROY, 0, destroy_event, (void *) data);
