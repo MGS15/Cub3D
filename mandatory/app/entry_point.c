@@ -6,17 +6,32 @@
 /*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 02:57:35 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/20 18:27:41 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/25 22:32:28 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3D.h"
 
- void init_img(t_data *data)
+int	init_img(t_data *data)
 {
+	int	i;
+
+	i = -1;
 	data->mlx->img.img = mlx_new_image(data->mlx->mlx_p, WINDOW_WIDTH, WINDOW_HEIGHT);
 	data->mlx->img.addr = mlx_get_data_addr(data->mlx->img.img, &data->mlx->img.bpp, \
 		 &data->mlx->img.line_len, &data->mlx->img.endian);
+	data->textures[0].img.img = mlx_xpm_file_to_image(data->mlx->mlx_p, data->maze->north_side, &data->textures[0].width, &data->textures[0].height);
+	data->textures[1].img.img = mlx_xpm_file_to_image(data->mlx->mlx_p, data->maze->west_side, &data->textures[1].width, &data->textures[1].height);
+	data->textures[2].img.img = mlx_xpm_file_to_image(data->mlx->mlx_p, data->maze->east_side, &data->textures[2].width, &data->textures[2].height);
+	data->textures[3].img.img = mlx_xpm_file_to_image(data->mlx->mlx_p, data->maze->south_side, &data->textures[3].width, &data->textures[3].height);
+	while (++i < 4)
+	{
+		if (!data->textures[i].img.img)
+			return (0);
+		data->textures[i].img.addr = mlx_get_data_addr(data->textures[i].img.img, &data->textures[i].img.bpp, \
+		&data->textures[i].img.line_len, &data->textures[i].img.endian);
+	}
+	return (1);
 }
 
 int	entry_point(t_maze *maze)
@@ -31,6 +46,7 @@ int	entry_point(t_maze *maze)
 	data->player = init_player(data->maze);
 	ft_bzero(&data->event, sizeof(t_event));
 	maze->map[(int) maze->player_position.y][(int) maze->player_position.x] = '0';
+	ft_bzero(data->textures, sizeof(t_texture));
 	init_img(data);
 	events_router(data);
 	draw_player(data);

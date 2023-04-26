@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 00:05:03 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/20 02:58:17 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/25 23:12:31 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@ void	my_mlx_pixle_put(t_img *img, t_coords coord, int color)
 
 	dst = img->addr + ((int) coord.y * img->line_len + (int) coord.x * (img->bpp / 8));
 	*(unsigned int *) dst = color;
+}
+
+int	get_pixel(t_texture *texture, int x, int y)
+{
+	char*	pixle;
+
+	pixle = texture->img.addr + ( y * texture->img.line_len + x * (texture->img.bpp / 8));
+	return (*(unsigned int *)pixle);
 }
 
 void	draw_circle(t_data *data, int center_x, int center_y, int radius, int color)

@@ -1,13 +1,13 @@
-SO ./assets/textures/west.xpm      
-EA ./assets/textures/west.xpm
-NO ./assets/textures/west.xpm                     
-WE ./assets/textures/west.xpm    
+SO ./assets/textures/Brick_10-512x512.xpm
+EA ./assets/textures/Metal_08-512x512.xpm
+NO ./assets/textures/Stone_14-512x512.xpm
+WE ./assets/textures/Metal_08-512x512.xpm
 C 0,0,0
 F 47,82,65
         1111111111111111111111111
-        1000000110000000000000001
-        1011000000000000000000001
-        1001000000E00000010000001
+        1000000110100000000000001
+        1011000001E10000000000001
+        1001000000100000010000001
 111111111011000001110000000000001
 100000000011000001110111110011111
 11110111111 11011100000010001 

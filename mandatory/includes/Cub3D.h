@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/20 05:54:06 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/25 23:12:41 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -311,8 +311,9 @@ int		events_router(t_data *data);
  * @return int 
  */
 int		default_handler(t_data *data);
-void	init_img(t_data *data);
+int	init_img(t_data *data);
 int		destroy_event(t_data *data);
 int	keydown_handler(int keycode, t_data *data);
 int	keyup_handler(int keycode, t_data *data);
+int	get_pixel(t_texture *texture, int x, int y);
 #endif

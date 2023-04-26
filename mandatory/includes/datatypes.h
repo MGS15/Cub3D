@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:08:41 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/20 05:50:01 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/25 23:34:50 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,13 @@ typedef struct img_s
 	int		endian;
 }	t_img;
 
+typedef struct texture_s
+{
+	int		width;
+	int		height;
+	t_img	img;
+}	t_texture;
+
 typedef struct mlx_s
 {
 	void	*mlx_p;
@@ -83,7 +90,10 @@ typedef struct ray_s
 	int	wall_height;
 	int draw_start;
 	int draw_end;
+	int	line_len;
 	double	intersection_x;
+	double	texture_intersection;
+	double	perp;
 }	t_ray;
 
 typedef struct player_s
@@ -102,6 +112,7 @@ typedef struct data_s
 	t_mlx		*mlx;
 	t_maze		*maze;
 	t_event		event;
+	t_texture	textures[4];
 }	t_data;
 
 #endif

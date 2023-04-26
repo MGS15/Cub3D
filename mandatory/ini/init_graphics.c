@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 20:54:31 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/20 18:28:19 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/26 00:17:00 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ t_player	*init_player(t_maze *maze)
 	player = ft_calloc(1, sizeof(t_player));
 	if (!player)
 		return (NULL);
-	player->position.x = maze->player_position.x;
-	player->position.y = maze->player_position.y;
+	player->position.x = maze->player_position.x + 0.5;
+	player->position.y = maze->player_position.y + 0.5;
 	player->radius = PLAYER_RADIUS;
 	if (maze->map[(int) maze->player_position.y][(int) maze->player_position.x] == SD_N)
 	{
