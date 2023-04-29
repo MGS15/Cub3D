@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entry_point.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 02:57:35 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/25 22:32:28 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/29 13:15:24 by aechafii         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,17 @@ int	init_img(t_data *data)
 	data->mlx->img.addr = mlx_get_data_addr(data->mlx->img.img, &data->mlx->img.bpp, \
 		 &data->mlx->img.line_len, &data->mlx->img.endian);
 	data->textures[0].img.img = mlx_xpm_file_to_image(data->mlx->mlx_p, data->maze->north_side, &data->textures[0].width, &data->textures[0].height);
+	if (!data->textures[0].img.img)
+		printf("truee\n"), exit(1);
 	data->textures[1].img.img = mlx_xpm_file_to_image(data->mlx->mlx_p, data->maze->west_side, &data->textures[1].width, &data->textures[1].height);
+	if (!data->textures[1].img.img)
+		printf("truee\n"), exit(1);
 	data->textures[2].img.img = mlx_xpm_file_to_image(data->mlx->mlx_p, data->maze->east_side, &data->textures[2].width, &data->textures[2].height);
+	if (!data->textures[2].img.img)
+		printf("truee\n"), exit(1);
 	data->textures[3].img.img = mlx_xpm_file_to_image(data->mlx->mlx_p, data->maze->south_side, &data->textures[3].width, &data->textures[3].height);
+	if (!data->textures[3].img.img)  // segfault texture
+		printf("truee\n"), exit(1);
 	while (++i < 4)
 	{
 		if (!data->textures[i].img.img)
