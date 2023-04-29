@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entry_point.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 02:57:35 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/29 13:15:24 by aechafii         ###   ########.fr       */
+/*   Updated: 2023/04/29 14:51:45 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,9 @@ int	init_img(t_data *data)
 	data->mlx->img.addr = mlx_get_data_addr(data->mlx->img.img, &data->mlx->img.bpp, \
 		 &data->mlx->img.line_len, &data->mlx->img.endian);
 	data->textures[0].img.img = mlx_xpm_file_to_image(data->mlx->mlx_p, data->maze->north_side, &data->textures[0].width, &data->textures[0].height);
-	if (!data->textures[0].img.img)
-		printf("truee\n"), exit(1);
 	data->textures[1].img.img = mlx_xpm_file_to_image(data->mlx->mlx_p, data->maze->west_side, &data->textures[1].width, &data->textures[1].height);
-	if (!data->textures[1].img.img)
-		printf("truee\n"), exit(1);
 	data->textures[2].img.img = mlx_xpm_file_to_image(data->mlx->mlx_p, data->maze->east_side, &data->textures[2].width, &data->textures[2].height);
-	if (!data->textures[2].img.img)
-		printf("truee\n"), exit(1);
 	data->textures[3].img.img = mlx_xpm_file_to_image(data->mlx->mlx_p, data->maze->south_side, &data->textures[3].width, &data->textures[3].height);
-	if (!data->textures[3].img.img)  // segfault texture
-		printf("truee\n"), exit(1);
 	while (++i < 4)
 	{
 		if (!data->textures[i].img.img)
@@ -55,7 +47,8 @@ int	entry_point(t_maze *maze)
 	ft_bzero(&data->event, sizeof(t_event));
 	maze->map[(int) maze->player_position.y][(int) maze->player_position.x] = '0';
 	ft_bzero(data->textures, sizeof(t_texture));
-	init_img(data);
+	if (!init_img(data))
+		fatal_error(TEXTURE_ERROR);
 	events_router(data);
 	draw_player(data);
 	mlx_put_image_to_window(data->mlx->mlx_p, data->mlx->win_p, data->mlx->img.img,0, 0);

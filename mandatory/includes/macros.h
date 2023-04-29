@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:09:00 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/20 05:00:27 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/29 14:51:38 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,18 @@
 /** 
  * ERRORS MESSAGES CONSTANTS
  */
-# define ARGS_ERROR			"Invalid number of arguments\n`Cub3D`\
+# define ARGS_ERROR			"Invalid number of arguments\n`Cub3D` \
 expects exactly one argument."
 # define MEMORY_ERROR		"Memory allocation failed!"
-# define MAP_FILE_ERROR		"Invalid file! Check if file exist and\
+# define MAP_FILE_ERROR		"Invalid file! Check if file exist and \
 it's permissions!"
 # define MAP_PARSE_ERROR	"Invalid map! Check the map and try again!"
-# define ARGUMENTS_ERROR	"Invalid arguments! A map\
+# define ARGUMENTS_ERROR	"Invalid arguments! A map \
 in format `*.cub` is required!"
-# define RESOLUTION_ERROR	"Invalid resolution! Choose\
+# define RESOLUTION_ERROR	"Invalid resolution! Choose \
 a different resolution (1007 x 641 recommended)."
+# define TEXTURE_ERROR	"Invalid texture file! \
+Check if file exist and it's permissions!"
 
 /*
  * RAYCASTING

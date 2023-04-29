@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:11:32 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/20 22:59:45 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/29 14:51:43 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	default_handler(t_data *data)
 {
 	if (!(data->event.horizontal_movement || data->event.vertical_movement || data->event.rotation))
 		return 0;
-	init_img(data);
+	if (!init_img(data))
+		fatal_error(TEXTURE_ERROR);
 	events_router(data);
 	draw_player(data);
 	mlx_put_image_to_window(data->mlx->mlx_p, data->mlx->win_p, data->mlx->img.img,0, 0);
