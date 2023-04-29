@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/25 23:12:41 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:04:22 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,14 @@ double		deg_to_rad(double rad);
  * @return double 
  */
 double		rad_to_deg(double deg);
+/**
+ * @brief 
+ * 
+ * @param rgb 
+ * @return int 
+ */
+
+int			rgb_to_int(t_rgb rgb);
 /**
  * @brief 
  * 

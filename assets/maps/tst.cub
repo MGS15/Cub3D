@@ -1,10 +1,10 @@
 SO ./assets/textures/Brick_10-512x512.xpm
-EA ./assets/textures/Metal_08-512x512.xpm
-NO ./assets/textures/Stone_14-512x512.xpm
-WE ./assets/textures/Metal_08-512x512.xpm
+EA ./assets/textures/Brick_10-512x512.xpm
+NO ./assets/textures/Brick_10-512x512.xpm
+WE ./assets/textures/Brick_10-512x512.xpm
 
-C 0,0,0
-F 47,82,65
+C 19,24,98
+F 52,52,52
 
 
 

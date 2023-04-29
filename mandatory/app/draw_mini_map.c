@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 02:33:12 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/26 00:14:42 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/29 18:22:49 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,15 +120,18 @@ void	texturing(t_data *data, t_ray *ray, int x)
 	double scale;
 	t_texture	*tex;
 	int i;
+	int j;
 
 
 	i = 0;
+	j = -1;
 	int temp;
 	scale =  (double)data->textures[get_polarity(*ray)].height / ray->wall_height;
 	temp = ray->draw_start - 1;
 	ray->draw_start--;
 	tex = &data->textures[get_polarity(*ray)];
-	
+	while (++j <= ray->draw_start)
+		my_mlx_pixle_put(&data->mlx->img, set_coords(x, j), rgb_to_int(*data->maze->ceilling));
 	if (ray->draw_start  == -1)
 	{
 		i = (ray->wall_height - WINDOW_HEIGHT) / 2;
@@ -140,6 +143,9 @@ void	texturing(t_data *data, t_ray *ray, int x)
 		pixel_put(&data->mlx->img, x, ray->draw_start , get_pixel(tex, ray->texture_intersection, i * scale));
 		i++;
 	}
+	j = ray->draw_start;
+	while (++j < WINDOW_HEIGHT)
+		my_mlx_pixle_put(&data->mlx->img, set_coords(x, j), rgb_to_int(*data->maze->floor));
 	ray->draw_start = temp;
 }
 
