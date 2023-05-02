@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   datatypes.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:08:41 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/25 23:34:50 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:08:30 by aechafii         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct event_s
 	int	vertical_movement;
 	int	horizontal_movement;
 	int	rotation;
-	int keycode;
+	int	keycode;
 }	t_event;
 
 typedef struct maze_s
@@ -79,21 +79,21 @@ typedef struct mlx_s
 
 typedef struct ray_s
 {
-	t_vector ray_v;
-	t_vector change;
+	t_vector	ray_v;
+	t_vector	change;
 	t_vector	change_in_sqr;
-	int	map_x;
-	int	map_y;
+	int			map_x;
+	int			map_y;
 	int			inc_x;
 	int			inc_y;
-	char	interction;
-	int	wall_height;
-	int draw_start;
-	int draw_end;
-	int	line_len;
-	double	intersection_x;
-	double	texture_intersection;
-	double	perp;
+	char		interction;
+	int			wall_height;
+	int			draw_start;
+	int			draw_end;
+	int			line_len;
+	double		intersection_x;
+	double		texture_intersection;
+	double		perp;
 }	t_ray;
 
 typedef struct player_s

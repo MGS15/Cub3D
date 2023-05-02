@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   texture_handler.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 20:18:25 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/20 20:24:59 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:22:54 by aechafii         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3D.h"
 
-void    texture_handler(t_data *data)
+void	texture_handler(t_data *data)
 {
-    t_texture   texture;
+	t_texture	texture;
 }

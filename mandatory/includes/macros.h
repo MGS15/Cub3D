@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:09:00 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/29 14:51:38 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:08:38 by aechafii         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ Check if file exist and it's permissions!"
 # define COS_ROT_L 0.9961946981
 # define SIN_ROT_R -0.0871557427
 # define COS_ROT_R 0.9961946981
-
 
 /*
  * EVENTS

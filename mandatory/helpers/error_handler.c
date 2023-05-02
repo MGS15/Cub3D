@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:25:16 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/30 13:47:15 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:10:18 by aechafii         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ void	free_mlx(t_mlx *mlx)
 	{
 		if (mlx->win_p)
 			mlx_destroy_window(mlx->mlx_p, mlx->win_p);
-		// if (mlx->mlx_p)
-		// 	free(mlx->mlx_p);
 		free(mlx);
 	}
 	mlx = NULL;

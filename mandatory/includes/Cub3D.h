@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/29 16:04:22 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/05/02 20:14:06 by aechafii         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,26 +144,6 @@ int			rgb_to_int(t_rgb rgb);
  * @brief 
  * 
  * @param data 
- * @param center_x 
- * @param center_y 
- * @param radius 
- * @param color 
- */
-void		draw_circle(t_data *data, int center_x, int center_y, int radius, int color);
-/**
- * @brief 
- * 
- * @param data 
- * @param start_x 
- * @param start_y 
- * @param side_len 
- * @param color 
- */
-void		draw_block(t_data *data, int start_x, int start_y, int side_len, int color);
-/**
- * @brief 
- * 
- * @param data 
  * @param end_p1 
  * @param end_p2 
  */
@@ -281,47 +261,53 @@ bool		is_valid_map(t_maze *maze);
 bool		is_spawning_position(char c);
 /* ______________________ APP FUNCTIONS ______________________ */
 /**
- * @brief Draws minimap
- * @param maze pointer to t_maze structure.
- * @param mlx pointer to t_mlx structure.
- */
-void	draw_circle(t_data *data, int center_x, int center_y, int radius, int color);
-/**
  * @brief 
  * 
  * @param maze 
  * @return int 
  */
-int		entry_point(t_maze *maze);
+int			entry_point(t_maze *maze);
 /**
  * @brief 
  * 
  * @param data 
  */
-void	draw_map(t_data *data);
+void		draw_map(t_data *data);
 /**
  * @brief 
  * 
- * @param data 
+ * @param data
  */
-void	draw_player(t_data *data);
-/**
- * @brief 
- * 
- * @param data 
- * @return int 
- */
-int		events_router(t_data *data);
+void		draw_player(t_data *data);
 /**
  * @brief 
  * 
  * @param data 
  * @return int 
  */
-int		default_handler(t_data *data);
-int	init_img(t_data *data);
-int		destroy_event(t_data *data);
-int	keydown_handler(int keycode, t_data *data);
-int	keyup_handler(int keycode, t_data *data);
-int	get_pixel(t_texture *texture, int x, int y);
+void		events_router1(t_data *data, double *x, double *y);
+void		events_router2(t_data *data, double *x, double *y);
+void		events_router3(t_data *data);
+int			events_router(t_data *data);
+/**
+ * @brief 
+ * 
+ * @param data 
+ * @return int 
+ */
+int			default_handler(t_data *data);
+int			init_img(t_data *data);
+int			destroy_event(t_data *data);
+int			keydown_handler(int keycode, t_data *data);
+int			keyup_handler(int keycode, t_data *data);
+int			get_pixel(t_texture *texture, int x, int y);
+t_vector	get_change_in_sqr(t_data *data, t_ray ray);
+void		get_map_increament(t_ray *ray);
+int			get_polarity(t_ray ray);
+void		get_x_pos(t_data *data, t_ray *ray);
+void		get_ray_length(t_ray *ray, char **map);
+int			check_borders(t_maze *maze, int i, int j);
+bool		check_map_area(t_maze *maze, int i, int j, short *p);
+bool		is_map_element(char c);
+
 #endif

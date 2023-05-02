@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+         #
+#    By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/30 01:10:39 by sel-kham          #+#    #+#              #
-#    Updated: 2023/04/18 21:17:30 by sel-kham         ###   ########.fr        #
+#    Updated: 2023/05/02 20:10:39 by aechafii         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,13 +51,13 @@ GNL_BUILD 		:= $(addprefix $(BUILD_DIR)/, $(notdir $(GNL:.c=.o)))
 # Mandatory files
 HEADERS			:= Cub3D datatypes macros
 HEADERS			:= $(addprefix $(INC_DIR)/, $(addsuffix .h, $(HEADERS)))
-APP				:= draw_mini_map entry_point hooks
+APP				:= draw_mini_map draw_mini_map_utils entry_point hooks hooks_utils
 APP				:= $(addprefix $(APP_DIR)/, $(addsuffix .c, $(APP)))
 INI				:= constructors setters init_graphics
 INI				:= $(addprefix $(INI_DIR)/, $(addsuffix .c, $(INI)))
 HELPERS			:= error_handler string_handler matrix_helpers mlx_helpers calculations_helper
 HELPERS			:= $(addprefix $(HELPERS_DIR)/, $(addsuffix .c, $(HELPERS)))
-PUBLIC			:= parsing texture_parser map_parser
+PUBLIC			:= parsing parsing_utils texture_parser map_parser 
 PUBLIC			:= $(addprefix $(PUBLIC_DIR)/, $(addsuffix .c, $(PUBLIC)))
 
 SRC				:= $(APP) $(INI) $(HELPERS) $(PUBLIC)

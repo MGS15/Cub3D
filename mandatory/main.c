@@ -3,31 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:13:43 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/05/02 02:07:47 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/05/02 20:15:42 by aechafii         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/Cub3D.h"
-
-// static void	print_maze(t_maze *maze)
-// {
-// 	int	i;
-
-// 	i = -1;
-// 	printf("NORTH SIDE: %s\n", maze->north_side);
-// 	printf("SOUTH SIDE: %s\n", maze->south_side);
-// 	printf("EAST SIDE: %s\n", maze->east_side);
-// 	printf("WEST SIDE: %s\n", maze->west_side);
-// 	printf("FLOOR: %d, %d, %d\n", maze->floor->r, maze->floor->g, \
-// 		maze->floor->b);
-// 	printf("CEILLING: %d, %d, %d\n", maze->floor->r, maze->floor->g, \
-// 		maze->floor->b);
-// 	while (maze->map[++i])
-// 		printf("%s\n", maze->map[i]);
-// }
 
 static t_maze	*map_checker(int fd)
 {
@@ -42,16 +25,11 @@ static t_maze	*map_checker(int fd)
 	return (maze);
 }
 
-// static void leaks(void)
-// {
-// 	system("leaks cub3D");
-// }
-
 int	main(int c, char **v)
 {
 	t_maze	*maze;
 	int		fd;
-	// atexit(leaks);
+
 	if (c != 2)
 		fatal_error(ARGS_ERROR);
 	if (v[1] && v[1][0])

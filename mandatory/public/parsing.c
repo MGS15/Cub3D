@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 04:03:51 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/07 21:54:33 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/05/02 20:15:05 by aechafii         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,44 +31,18 @@ bool	is_valid_map(t_maze *maze)
 
 	i = -1;
 	p = 0;
-	maze->map_high = martix_len(maze->map);
-	maze->map_width = get_lognest_line(maze->map);
 	while (maze->map[++i])
 	{
 		j = -1;
 		while (maze->map[i][++j])
 		{
-			if (!j && maze->map[i][j] \
-				&& maze->map[i][j] != WALL && maze->map[i][j] != ' ')
+			if (!check_borders(maze, i, j))
 				return (false);
 			if (maze->map[i][j] && ft_isspace(maze->map[i][j]))
 				continue ;
-			if (!i && maze->map[i][j] \
-				&& maze->map[i][j] != WALL && !ft_isspace(maze->map[i][j]))
-				return (false);
-			else if (maze->map[i][j] \
-				&& i == (int) maze->map_high - 1 \
-				&& maze->map[i][j] != WALL && !ft_isspace(maze->map[i][j]))
-				return (false);
 			else
-			{
-				if (maze->map[i][j] == AREA \
-					|| is_spawning_position(maze->map[i][j]))
-				{
-					if (!is_map_element(maze->map[i][j - 1]) \
-						|| !is_map_element(maze->map[i][j + 1])
-						|| !is_map_element(maze->map[i - 1][j])
-						|| !is_map_element(maze->map[i + 1][j]))
-						return (false);
-					if (is_spawning_position(maze->map[i][j]))
-					{
-						maze->player_position = set_coords(j, i);
-						p++;
-					}
-				}
-				else if (!is_map_element(maze->map[i][j]) && maze->map[i][j] != ' ')
-                    return false;
-			}
+				if (!check_map_area(maze, i, j, &p))
+					return (false);
 		}
 	}
 	if (p != 1)
