@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 02:33:12 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/29 18:22:49 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/05/02 02:55:43 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,8 +139,8 @@ void	texturing(t_data *data, t_ray *ray, int x)
 
 	while (++ray->draw_start < ray->draw_end)
 	{
-		// my_mlx_pixle_put(&data->mlx->img, set_coords(x, ray->draw_start), get_pixel(tex, ray->texture_intersection, i * scale));
-		pixel_put(&data->mlx->img, x, ray->draw_start , get_pixel(tex, ray->texture_intersection, i * scale));
+		my_mlx_pixle_put(&data->mlx->img, set_coords(x, ray->draw_start), get_pixel(tex, ray->texture_intersection, i * scale));
+		// pixel_put(&data->mlx->img, x, ray->draw_start , get_pixel(tex, ray->texture_intersection, i * scale));
 		i++;
 	}
 	j = ray->draw_start;
@@ -160,6 +160,7 @@ void	draw_player(t_data *data)
 	{
 		ft_bzero(&ray, sizeof(t_ray));
 		camera = 2.0 * (x / (double) WINDOW_WIDTH) - 1;
+		printf("%f\n", camera);
 		ray.ray_v.x = data->player->plane.x * camera + data->player->direction.x;
 		ray.ray_v.y = data->player->plane.y * camera + data->player->direction.y;
 		if (ray.ray_v.x)
@@ -185,6 +186,7 @@ void	draw_player(t_data *data)
 		
 		texturing(data, &ray, x);
 	}
+	exit(0);
 }
 
 // void	draw_map(t_data *data)

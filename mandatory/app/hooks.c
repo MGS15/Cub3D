@@ -6,7 +6,7 @@
 /*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 21:11:32 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/04/29 14:51:43 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/04/30 13:48:44 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,16 +106,22 @@ int	events_router(t_data *data)
 	}
 	if (data->maze->map[(int) y][(int) x] == AREA)
 	{
-		data->player->position.x = x;
-		data->player->position.y = y;
+		if (data->maze->map[(int) y][(int) data->player->position.x] != WALL && data->maze->map[(int) data->player->position.y][(int) x] != WALL)
+		{
+			data->player->position.x = x;
+			data->player->position.y = y;
+		}
 	}
 	return (0);
 }
 
 int	destroy_event(t_data *data)
 {
+	int i = -1;
 	if (!data)
 		return (EXIT_SUCCESS);
+	while (++i < 4)
+		mlx_destroy_image(data->mlx->mlx_p, data->textures[i].img.img);
 	free_mlx(data->mlx);
 	free_maze(data->maze);
 	free(data->player);
