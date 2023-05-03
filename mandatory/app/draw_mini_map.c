@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_mini_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 02:33:12 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/05/02 16:58:49 by aechafii         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:51:51 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ t_vector	get_change_in_sqr(t_data *data, t_ray ray)
 	t_vector	vec;
 
 	if (ray.ray_v.x > 0.0)
-		vec.x = ray.change.x * ((double) ray.map_x \
+		vec.x = ray.delta_dist.x * ((double) ray.map_x \
 			+ 1.0 - data->player->position.x);
 	else
-		vec.x = ray.change.x * (data->player->position.x - (double) ray.map_x);
+		vec.x = ray.delta_dist.x * (data->player->position.x - (double) ray.map_x);
 	if (ray.ray_v.y > 0)
-		vec.y = ray.change.y * ((double) ray.map_y + \
+		vec.y = ray.delta_dist.y * ((double) ray.map_y + \
 			1.0 - data->player->position.y);
 	else
-		vec.y = ray.change.y * (data->player->position.y - (double) ray.map_y);
+		vec.y = ray.delta_dist.y * (data->player->position.y - (double) ray.map_y);
 	return (vec);
 }
 
@@ -50,13 +50,13 @@ void	get_ray_length(t_ray *ray, char **map)
 	{
 		if (ray->change_in_sqr.x < ray->change_in_sqr.y)
 		{
-			ray->change_in_sqr.x += ray->change.x;
+			ray->change_in_sqr.x += ray->delta_dist.x;
 			ray->map_x += ray->inc_x;
 			ray->interction = 0;
 		}
 		else
 		{
-			ray->change_in_sqr.y += ray->change.y;
+			ray->change_in_sqr.y += ray->delta_dist.y;
 			ray->map_y += ray->inc_y;
 			ray->interction = 1;
 		}
@@ -64,9 +64,9 @@ void	get_ray_length(t_ray *ray, char **map)
 			stp = 0;
 	}
 	if (ray->interction == 1)
-		ray->perp = ray->change_in_sqr.y - ray->change.y;
+		ray->perp = ray->change_in_sqr.y - ray->delta_dist.y;
 	if (ray->interction == 0)
-		ray->perp = ray->change_in_sqr.x - ray->change.x;
+		ray->perp = ray->change_in_sqr.x - ray->delta_dist.x;
 }
 
 int	get_polarity(t_ray ray)

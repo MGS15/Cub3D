@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   datatypes.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:08:41 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/05/02 11:08:30 by aechafii         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:51:09 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ typedef struct mlx_s
 typedef struct ray_s
 {
 	t_vector	ray_v;
-	t_vector	change;
+	t_vector	delta_dist;
 	t_vector	change_in_sqr;
 	int			map_x;
 	int			map_y;

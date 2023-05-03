@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_mini_map_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:30:10 by aechafii          #+#    #+#             */
-/*   Updated: 2023/05/02 16:59:05 by aechafii         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:51:19 by sel-kham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,13 +100,13 @@ void	draw_player(t_data *data)
 		ray.ray_v.y = data->player->plane.y * \
 			camera + data->player->direction.y;
 		if (ray.ray_v.x)
-			ray.change.x = 1 / fabs(ray.ray_v.x);
+			ray.delta_dist.x = 1 / fabs(ray.ray_v.x);
 		else
-			ray.change.x = 1e30;
+			ray.delta_dist.x = 1e30;
 		if (ray.ray_v.y)
-			ray.change.y = 1 / fabs(ray.ray_v.y);
+			ray.delta_dist.y = 1 / fabs(ray.ray_v.y);
 		else
-			ray.change.y = 1e30;
+			ray.delta_dist.y = 1e30;
 		draw_player2(data, &ray);
 		texturing(data, &ray, x);
 	}
