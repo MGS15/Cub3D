@@ -6,7 +6,7 @@
 /*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:14:05 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/05/02 20:14:06 by aechafii         ###   ########.fr       */
+/*   Updated: 2023/05/06 16:53:36 by aechafii         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,6 @@ int			rgb_to_int(t_rgb rgb);
  * @param end_p1 
  * @param end_p2 
  */
-void		draw_line(t_data *data, double len, t_vector vec, int color);
 /* ______________________ INI FUNCTIONS ______________________ */
 /**
  * @brief Allocates a pointer to t_rgb type object and initialize its elements

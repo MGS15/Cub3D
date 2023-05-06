@@ -6,7 +6,7 @@
 /*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 20:54:31 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/05/02 17:36:08 by aechafii         ###   ########.fr       */
+/*   Updated: 2023/05/06 16:53:05 by aechafii         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ t_player	*init_player(t_maze *maze)
 		return (NULL);
 	player->position.x = maze->player_position.x + 0.5;
 	player->position.y = maze->player_position.y + 0.5;
-	player->radius = PLAYER_RADIUS;
 	if (maze->map[(int) maze->player_position.y][(int) \
 		maze->player_position.x] == SD_N)
 	{
@@ -68,7 +67,6 @@ t_player	*init_player(t_maze *maze)
 		player->plane = set_vector(0, .66);
 	}
 	check_east_south(maze, player);
-	player->rotation_speed = 2 * (M_PI / 180);
 	player->walk_speed = .1;
 	return (player);
 }

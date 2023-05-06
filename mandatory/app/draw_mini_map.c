@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_mini_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 02:33:12 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/05/03 15:51:51 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/05/06 16:54:27 by aechafii         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ t_vector	get_change_in_sqr(t_data *data, t_ray ray)
 		vec.x = ray.delta_dist.x * ((double) ray.map_x \
 			+ 1.0 - data->player->position.x);
 	else
-		vec.x = ray.delta_dist.x * (data->player->position.x - (double) ray.map_x);
+		vec.x = ray.delta_dist.x * \
+			(data->player->position.x - (double) ray.map_x);
 	if (ray.ray_v.y > 0)
 		vec.y = ray.delta_dist.y * ((double) ray.map_y + \
 			1.0 - data->player->position.y);
 	else
-		vec.y = ray.delta_dist.y * (data->player->position.y - (double) ray.map_y);
+		vec.y = ray.delta_dist.y * \
+			(data->player->position.y - (double) ray.map_y);
 	return (vec);
 }
 

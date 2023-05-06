@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   datatypes.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sel-kham <sel-kham@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aechafii <aechafii@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:08:41 by sel-kham          #+#    #+#             */
-/*   Updated: 2023/05/03 15:51:09 by sel-kham         ###   ########.fr       */
+/*   Updated: 2023/05/06 16:53:29 by aechafii         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ typedef struct player_s
 {
 	t_coords	position;
 	int			radius;
-	double		rotation_speed;
 	double		walk_speed;
 	t_vector	direction;
 	t_vector	plane;
